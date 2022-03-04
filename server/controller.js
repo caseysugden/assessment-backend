@@ -1,3 +1,6 @@
+const users = require('./db.json');
+let globalID = 4;
+
 module.exports = {
     getCompliment: (req, res) => {
         const compliments = ["Gee, you're a smart cookie!",
@@ -11,7 +14,7 @@ module.exports = {
       
         res.status(200).send(randomCompliment);
         
-      },
+    },
     getFortune: (req, res) => {
         const fortunes = [
             "You will meet the love of your life this year",
@@ -27,7 +30,7 @@ module.exports = {
       
         res.status(200).send(randomFortune);
         
-      },
+    },
     getContinent: (req, res) => {
         const continents = ["North America", "South America", "Europe", "Asia", "Africa", "Australia", "Antarctica"];
       
@@ -37,7 +40,7 @@ module.exports = {
       
         res.status(200).send(randomContinent);
         
-      },
+    },
     getAnimal: (req, res) => {
         const animals = ["Dog", "Cat", "Parrot", "Monkey", "Shark", "Bat", "Cow"];
       
@@ -47,7 +50,7 @@ module.exports = {
       
         res.status(200).send(randomAnimal);
         
-      },
+    },
     getZodiac: (req, res) => {
         const zodiacs = ["Aquarius", "Pisces", "Aries", "Tauras", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn"];
       
@@ -57,5 +60,19 @@ module.exports = {
       
         res.status(200).send(randomZodiac);
         
-      },
+    },
+
+    getUsers: (req, res) => res.status(200).send(users),
+    // createUser: (req, res) => {
+
+    // },
+    // updateUser: (req, res) => {
+
+    // },
+    deleteUser: (req, res) => {
+        let index = users.findIndex(elem => elem.id === +req.params.id);
+        users.splice(index, 1);
+        res.status(200).send(users);
+    },
+    
 }

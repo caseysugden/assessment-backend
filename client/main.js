@@ -33,3 +33,19 @@ document.getElementById("zodiacButton").onclick = function () {
           alert(data);
         });
 };
+
+// FIXME: Implement HTTP Requests to get, post, put, and delete users
+document.getElementById("usersButton").onclick = function () {
+    axios.get("http://localhost:4000/api/user/")
+        .then(function (response) {
+          const data = response.data;
+          alert(data);
+        });
+};
+document.getElementById("deleteButton").onclick = function () {
+    axios.delete("http://localhost:4000/api/user/:id")
+        .then(function (response) {
+            const data = response.data;
+            alert(data);
+        })
+}

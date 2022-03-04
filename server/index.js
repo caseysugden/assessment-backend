@@ -13,7 +13,11 @@ const {
   getFortune,
   getContinent,
   getAnimal,
-  getZodiac
+  getZodiac,
+  getUsers,
+  // createUser,
+  // updateUser,
+  deleteUser
 } = require('./controller');
 
 app.get("/api/compliment", getCompliment);
@@ -21,6 +25,11 @@ app.get("/api/fortune", getFortune);
 app.get("/api/continent", getContinent);
 app.get("/api/animal", getAnimal);
 app.get("/api/zodiac", getZodiac);
+
+app.get("/api/user", getUsers);
+// app.post("/api/user", createUser);
+// app.put("/api/user/:id", updateUser);
+app.delete("/api/user/:id", deleteUser);
 
 
 app.listen(4000, () => console.log("Server running on 4000"));
